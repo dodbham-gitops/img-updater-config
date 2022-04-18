@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: img-updater-config
-  namespace: img-updater
+  namespace: flux-system
 data:
   config.yaml: |
     repos:

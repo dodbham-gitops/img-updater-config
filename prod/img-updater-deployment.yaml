@@ -6,7 +6,7 @@ metadata:
 spec:
   images:
   - name: ghcr.io/dodbham-gitops/img-updater-bot
-    newTag: release-0.0.4 # {"$imagepolicy": "flux-system:img-updater-bot-updater-policy:tag"}
+    newTag: release-0.0.5 # {"$imagepolicy": "flux-system:img-updater-bot-updater-policy:tag"}
     newName: ghcr.io/dodbham-gitops/img-updater-bot # {"$imagepolicy": "flux-system:img-updater-bot-updater-policy:name"}
   interval: 1m
   path: "./manifests"

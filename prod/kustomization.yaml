@@ -4,3 +4,4 @@ resources:
   - prod-namespace.yaml
   - img-updater-deployment.yaml
   - img-updater-policy.yaml
+  - img-updater-cm.yaml

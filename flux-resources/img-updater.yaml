@@ -1,7 +1,7 @@
 apiVersion: source.toolkit.fluxcd.io/v1beta1
 kind: GitRepository
 metadata:
-  name: img-updater-bot-repo
+  name: img-updater-bot
   namespace: flux-system
 spec:
   interval: 1m

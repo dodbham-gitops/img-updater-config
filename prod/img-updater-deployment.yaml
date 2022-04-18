@@ -14,5 +14,5 @@ spec:
   targetNamespace: img-updater
   sourceRef:
     kind: GitRepository
-    name: image-updater-bot
+    name: img-updater-bot
     namespace: flux-system

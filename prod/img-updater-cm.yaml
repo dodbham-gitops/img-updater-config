@@ -7,7 +7,7 @@ data:
   config.yaml: |
     repos:
       rust:
-      - dodbham/chalupa-bot
+      - dodbham-gitops/chalupa-bot
       # node-alpine:
       # - some/repo
     github:

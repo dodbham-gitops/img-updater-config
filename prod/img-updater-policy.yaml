@@ -31,7 +31,7 @@ metadata:
   namespace: flux-system
 spec:
   imageRepositoryRef:
-    name: image-updater-bot
+    name: img-updater-bot
     namespace: flux-system
   filterTags:
     pattern: 'release-(?P<version>.*)'

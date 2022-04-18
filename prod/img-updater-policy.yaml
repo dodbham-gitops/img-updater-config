@@ -1,0 +1,41 @@
+apiVersion: image.toolkit.fluxcd.io/v1beta1
+kind: ImageUpdateAutomation
+metadata:
+  name: img-updater-bot-updater
+  namespace: flux-system
+spec:
+  interval: 1m0s
+  sourceRef:
+    kind: GitRepository
+    name: img-updater-config-repo
+    namespace: flux-system
+  git:
+    checkout:
+      ref:
+        branch: main
+    commit:
+      author:
+        email: fluxcdbot@users.noreply.github.com
+        name: fluxcdbot
+      messageTemplate: '{{range .Updated.Images}}{{println .}}{{end}}'
+    push:
+      branch: main
+  update:
+    path: ./prod
+    strategy: Setters
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta1
+kind: ImagePolicy
+metadata:
+  name: img-updater-bot-updater-policy
+  namespace: flux-system
+spec:
+  imageRepositoryRef:
+    name: image-updater-bot
+    namespace: flux-system
+  filterTags:
+    pattern: 'release-(?P<version>.*)'
+    extract: '$version'
+  policy:
+    semver:
+      range: '>=0.0.1 <1.0.0'

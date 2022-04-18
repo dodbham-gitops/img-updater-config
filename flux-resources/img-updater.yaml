@@ -1,0 +1,46 @@
+apiVersion: source.toolkit.fluxcd.io/v1beta1
+kind: GitRepository
+metadata:
+  name: img-updater-bot
+  namespace: flux-system
+spec:
+  interval: 1m
+  url: ssh://git@github.com/dodbham-gitops/img-updater-bot.git
+  secretRef:
+    name: git-clone
+  ref:
+    branch: main
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta1
+kind: ImageRepository
+metadata:
+  name: img-updater-bot
+  namespace: flux-system
+spec:
+  image: ghcr.io/dodbham-gitops/img-updater-bot
+  interval: 30s
+  accessFrom:
+    namespaceSelectors:
+      - matchLabels:
+          kubernetes.io/metadata.name: flux-system
+      - matchLabels:
+          kubernetes.io/metadata.name: img-udpater-bot
+      - matchLabels:
+          kubernetes.io/metadata.name: img-updater-bot-staging
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta1
+kind: ImageRepository
+metadata:
+  name: img-updater-bot-staging
+  namespace: flux-system
+spec:
+  image: ghcr.io/dodbham-gitops/img-updater-bot-staging
+  interval: 30s
+  accessFrom:
+    namespaceSelectors:
+      - matchLabels:
+          kubernetes.io/metadata.name: flux-system
+      - matchLabels:
+          kubernetes.io/metadata.name: img-updater-bot
+      - matchLabels:
+          kubernetes.io/metadata.name: img-updater-bot-staging

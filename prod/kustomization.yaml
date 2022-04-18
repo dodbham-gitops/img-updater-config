@@ -5,3 +5,4 @@ resources:
   - img-updater-deployment.yaml
   - img-updater-policy.yaml
   - img-updater-cm.yaml
+  - layer-policies.yaml

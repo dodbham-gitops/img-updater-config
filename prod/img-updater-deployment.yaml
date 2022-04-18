@@ -6,8 +6,8 @@ metadata:
 spec:
   images:
   - name: ghcr.io/dodbham-gitops/img-updater-bot
-    newTag: 0.0.1 # {"$imagepolicy": "flux-system:chalupa-bot-prod-image-policy:tag"}
-    newName: ghcr.io/dodbham-gitops/img-updater-bot # {"$imagepolicy": "flux-system:chalupa-bot-prod-image-policy:name"}
+    newTag: release-0.1.3 # {"$imagepolicy": "flux-system:chalupa-bot-prod-image-policy:tag"}
+    newName: ghcr.io/dodbham-gitops/chalupa-bot # {"$imagepolicy": "flux-system:chalupa-bot-prod-image-policy:name"}
   interval: 1m
   path: "./manifests"
   prune: true
